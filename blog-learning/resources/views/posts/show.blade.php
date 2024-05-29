@@ -9,14 +9,21 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Posts-Learning</a>
-
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  User Filter
+                  Dropdown
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Action</a></li>
@@ -25,7 +32,9 @@
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -35,38 +44,18 @@
         </div>
       </nav>
 
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Posted By</th>
-            <th scope="col">Title</th>
-            <th scope="col">Created At</th>
-            <th scope="col">Post Manage</th>
-          </tr>
-        </thead>
-        <tbody>
-         @foreach ($posts as $post)
-          <tr>
-            <th scope="row">1</th>
-            <td>Unknown</td>
-            <td>{{$post->title}}</td>
-            <td>{{$post->created_at}}</td>
-            <td>
-                <a href='{{route('posts.show', 1)}}' class="btn btn-info">View Post</a>
-                <a  class="btn btn-primary">Edit Post</a>
-                <a  class="btn btn-danger">Delete Post</a>
-            </td>
-          </tr>
-         @endforeach
-          
-        </tbody>
-      </table>
-      <div class="text-center">
-      <div class="mt-4">
-        <a  class="btn btn-success">Create New Post</a>
+      <div class="card">
+        <div class="card-header">
+         Ali
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{$post->title}}</h5>
+          <p class="card-text">{{$post->description}}</p>
+          <a  class="btn btn-primary">Edit Post</a>
+          <a  class="btn btn-danger">Delete Post</a>
+        </div>
       </div>
-      </div>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

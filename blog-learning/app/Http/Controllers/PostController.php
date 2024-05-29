@@ -12,4 +12,9 @@ class PostController extends Controller
         $posts = Post::all();
         return view("posts.posts", ['posts' => $posts]);
     }
+    public function show($post)
+    {
+        $post = Post::find(1);
+        return view("posts.show", ['post' => $post]);
+    }
 }
