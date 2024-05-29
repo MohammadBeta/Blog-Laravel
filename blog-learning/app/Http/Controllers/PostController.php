@@ -17,4 +17,8 @@ class PostController extends Controller
         $post = Post::find(1);
         return view("posts.show", ['post' => $post]);
     }
+    public function create()
+    {
+        return view("posts.create");
+    }
 }
