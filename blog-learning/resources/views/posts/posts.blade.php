@@ -21,7 +21,12 @@
             <td>
                 <a href='{{route('posts.show', $post->id)}}' class="btn btn-info">View Post</a>
                 <a  class="btn btn-primary">Edit Post</a>
-                <a  class="btn btn-danger">Delete Post</a>
+                <form method="post" action="{{route('posts.destroy', $post->id)}}">
+                  @csrf
+                  @method('delete')
+                <button type='submit' class="btn btn-danger">Delete Post</a>
+              </form>
+
             </td>
           </tr>
          @endforeach

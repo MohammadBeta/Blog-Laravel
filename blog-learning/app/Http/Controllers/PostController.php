@@ -29,7 +29,13 @@ class PostController extends Controller
         $title = $data['title'];
         $description = $data['description'];
         $postedby = $data['posted_by'];
-       Post::create(['title' => $title, 'description' => $description, 'user_id' => $postedby]);
+        Post::create(['title' => $title, 'description' => $description, 'user_id' => $postedby]);
+        return to_route('posts.index');
+    }
+
+    public function destroy($postID)
+    {
+        Post::destroy($postID);
         return to_route('posts.index');
     }
 }
