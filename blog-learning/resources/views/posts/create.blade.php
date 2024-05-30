@@ -18,9 +18,9 @@
 <label class="form-label">Created By</label>
 
 <select  name='posted_by' class="form-select" >
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+  @foreach ($users as $user)
+  <option value='{{$user->id}}'>{{$user->name}}</option>
+@endforeach
 </select>
 <button class="btn btn-primary" type="submit">Create</button>
 </form>

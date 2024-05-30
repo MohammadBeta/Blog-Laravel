@@ -14,12 +14,12 @@
         <tbody>
          @foreach ($posts as $post)
           <tr>
-            <th scope="row">1</th>
-            <td>Unknown</td>
+            <th scope="row">{{$post->id}}</th>
+            <td>{{$post->user == null ? 'Unknown': $post->user->name}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->created_at}}</td>
             <td>
-                <a href='{{route('posts.show', 1)}}' class="btn btn-info">View Post</a>
+                <a href='{{route('posts.show', $post->id)}}' class="btn btn-info">View Post</a>
                 <a  class="btn btn-primary">Edit Post</a>
                 <a  class="btn btn-danger">Delete Post</a>
             </td>

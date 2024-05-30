@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -14,12 +15,13 @@ class PostController extends Controller
     }
     public function show($post)
     {
-        $post = Post::find(1);
+        $post = Post::find($post);
         return view("posts.show", ['post' => $post]);
     }
     public function create()
     {
-        return view("posts.create");
+        $users = User::all();
+        return view("posts.create", ['users' => $users]);
     }
     public function store()
     {
@@ -27,9 +29,7 @@ class PostController extends Controller
         $title = $data['title'];
         $description = $data['description'];
         $postedby = $data['posted_by'];
-
-
-        $post = Post::create(['title' => $title, 'description' => $description,]);
+       Post::create(['title' => $title, 'description' => $description, 'user_id' => $postedby]);
         return to_route('posts.index');
     }
 }
